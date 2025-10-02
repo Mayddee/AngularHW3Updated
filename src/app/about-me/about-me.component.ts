@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';  // Не забывай импортировать FormsModule
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-about-me',
-  standalone: true,  // Это позволяет компоненту работать без модуля
-  imports: [CommonModule, FormsModule],  // Добавляем CommonModule и FormsModule для ngModel
+  standalone: true,  
+  imports: [CommonModule, FormsModule],  
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.css'
 })
@@ -40,7 +40,7 @@ export class AboutMeComponent {
     }
   }
 
-  // Event Binding Methods
+
   sendEmail() {
     alert('Email отправлен!');
   }
