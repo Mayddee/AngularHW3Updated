@@ -1,0 +1,43 @@
+<div class="about-container">
+  <div class="profile-section">
+    <div class="profile-avatar">
+      <i class="fas fa-user"></i>
+    </div>
+    
+    <div class="profile-info">
+      <h1 class="name">{{ studentInfo.name }}</h1>
+      <p class="title">{{ studentInfo.title }}</p>
+      <p class="university">{{ studentInfo.university }} - {{ studentInfo.major }}</p>
+      <p class="bio">{{ studentInfo.bio }}</p>
+    </div>
+  </div>
+
+  <!-- Displaying contacts count with interpolation -->
+  <p class="contacts-count">Контактов: {{ studentInfo.contacts.length }}</p>
+
+  <div class="contacts-section">
+    <h2>Контакты</h2>
+    <div class="contacts-list">
+      <div *ngFor="let contact of studentInfo.contacts" class="contact-item" (click)="onContactClick(contact)">
+        <i class="fas {{ contact.icon }}"></i>
+        <div class="contact-details">
+          <span class="contact-label">{{ contact.label }}</span>
+          <span class="contact-value">{{ contact.value }}</span>
+        </div>
+        <a *ngIf="contact.link" [href]="contact.link" target="_blank" class="contact-link">Перейти</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons with Event Binding -->
+  <div class="buttons-section">
+    <button (click)="sendEmail()" class="btn">Отправить Email</button>
+    <button (click)="showAlert()" class="btn">Показать имя</button>
+  </div>
+
+  <!-- Two-Way Binding for Name -->
+  <div class="name-input-section">
+    <label for="name">Измените имя:</label>
+    <input type="text" [(ngModel)]="studentInfo.name" id="name" />
+  </div>
+</div>
